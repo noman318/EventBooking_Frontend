@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 const theme = createTheme();
 
-export const LoginPage=() =>{
+export const ResetPassword=() =>{
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
       password: data.get('password'),
+      confirmPassword: data.get('confirmpassword')
     });
   };
 
@@ -44,19 +44,9 @@ export const LoginPage=() =>{
               <LockOutlined />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Reset Password
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
               <TextField
                 margin="normal"
                 required
@@ -67,6 +57,16 @@ export const LoginPage=() =>{
                 id="password"
                 autoComplete="current-password"
               />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="confirmpassword"
+                label="Confirm Password"
+                type="password"
+                id="confirmPassword"
+                autoComplete="current-password"
+              />
               <Button
                 type="submit"
                 color='secondary'
@@ -74,20 +74,11 @@ export const LoginPage=() =>{
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Reset Password
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link to="/forgotpassword">
-                    Forgot password?
+              <Link to="/login">
+                    Back to Login
                   </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/" >
-                    {"Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
             </Box>
           </Box>
         </Grid>

@@ -3,6 +3,7 @@ import {Typography,Grid, CssBaseline,Box,Paper,Button,TextField,Avatar} from "@m
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LockOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import gifLogo from '../../assets/SOWAREvent.gif'
 
 const theme = createTheme();
 
@@ -27,7 +28,9 @@ export const ForgotPassword=() =>{
             margin:'auto'
           }}
         >
-          <img src="https://media2.giphy.com/avatars/bookmyshowsea/1ACNZfssvdx2.JPG" alt="bg_image" height={'90%'}width={'100%'} />
+          {/* <img src="https://media2.giphy.com/avatars/bookmyshowsea/1ACNZfssvdx2.JPG" alt="bg_image" height={'90%'}width={'100%'} />
+           */}
+          <img src={gifLogo} alt="bg_image" height={'90%'}width={'100%'} />
       </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{margin:'5% 5% 5% 5%'}} >
           <Box

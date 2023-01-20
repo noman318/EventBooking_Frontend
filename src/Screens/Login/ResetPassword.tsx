@@ -3,24 +3,22 @@ import {Typography,Grid, CssBaseline,Box,Paper,Button,TextField,Avatar} from "@m
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LockOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-// import gifLogo from '../../assets/SOWAREvent.gif'
-import gifLightLogo from '../../assets/lightversion.gif'
+import gifLogo from '../../assets/SOWAREvent.gif'
 
 const theme = createTheme();
 
-export const LoginPage=() =>{
+export const ResetPassword=() =>{
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
       password: data.get('password'),
+      confirmPassword: data.get('confirmpassword')
     });
   };
 
   return (
     <ThemeProvider theme={theme}>
-      
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -31,12 +29,9 @@ export const LoginPage=() =>{
             margin:'auto'
           }}
         >
-          
-          {/* <img src="https://media2.giphy.com/avatars/bookmyshowsea/1ACNZfssvdx2.JPG" alt="bg_image" height={'90%'}width={'100%'} />
+{/* <img src="https://media2.giphy.com/avatars/bookmyshowsea/1ACNZfssvdx2.JPG" alt="bg_image" height={'90%'}width={'100%'} />
            */}
-          <img src={gifLightLogo} alt="bg_image" height={'90%'}width={'100%'} />
-
-      </Grid>
+          <img src={gifLogo} alt="bg_image" height={'90%'}width={'100%'} />      </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{margin:'5% 5% 5% 5%'}} >
           <Box
             sx={{
@@ -51,19 +46,9 @@ export const LoginPage=() =>{
               <LockOutlined />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Reset Password
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
               <TextField
                 margin="normal"
                 required
@@ -74,6 +59,16 @@ export const LoginPage=() =>{
                 id="password"
                 autoComplete="current-password"
               />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="confirmpassword"
+                label="Confirm Password"
+                type="password"
+                id="confirmPassword"
+                autoComplete="current-password"
+              />
               <Button
                 type="submit"
                 color='secondary'
@@ -81,20 +76,11 @@ export const LoginPage=() =>{
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Reset Password
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link to="/forgotpassword">
-                    Forgot password?
+              <Link to="/login">
+                    Back to Login
                   </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/" >
-                    {"Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
             </Box>
           </Box>
         </Grid>

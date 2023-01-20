@@ -3,24 +3,21 @@ import {Typography,Grid, CssBaseline,Box,Paper,Button,TextField,Avatar} from "@m
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LockOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-// import gifLogo from '../../assets/SOWAREvent.gif'
-import gifLightLogo from '../../assets/lightversion.gif'
+import gifLogo from '../../assets/SOWAREvent.gif'
 
 const theme = createTheme();
 
-export const LoginPage=() =>{
+export const ForgotPassword=() =>{
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email: data.get('email')
     });
   };
 
   return (
     <ThemeProvider theme={theme}>
-      
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -31,11 +28,9 @@ export const LoginPage=() =>{
             margin:'auto'
           }}
         >
-          
           {/* <img src="https://media2.giphy.com/avatars/bookmyshowsea/1ACNZfssvdx2.JPG" alt="bg_image" height={'90%'}width={'100%'} />
            */}
-          <img src={gifLightLogo} alt="bg_image" height={'90%'}width={'100%'} />
-
+          <img src={gifLogo} alt="bg_image" height={'90%'}width={'100%'} />
       </Grid>
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square sx={{margin:'5% 5% 5% 5%'}} >
           <Box
@@ -51,7 +46,7 @@ export const LoginPage=() =>{
               <LockOutlined />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Forgot Password
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -64,16 +59,6 @@ export const LoginPage=() =>{
                 autoComplete="email"
                 autoFocus
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
               <Button
                 type="submit"
                 color='secondary'
@@ -81,20 +66,11 @@ export const LoginPage=() =>{
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Send Mail
               </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link to="/forgotpassword">
-                    Forgot password?
+              <Link to="/login">
+                    Back to Login
                   </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/" >
-                    {"Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
             </Box>
           </Box>
         </Grid>
